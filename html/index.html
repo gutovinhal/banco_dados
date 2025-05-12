@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Configura o viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página -->
+    <title>ERP System</title>
+    <!-- Importa o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho do sistema -->
+        <header>
+            <div class="logo">ERP System</div> <!-- Logo do sistema -->
+        </header>
+
+        <!-- Menu de navegação -->
+        <nav>
+            <ul class="nav-menu">
+                <!-- Cada item do menu possui um ícone e um texto, e está associado a uma seção -->
+                <li class="nav-item active" data-target="dashboard">
+                    <i>📊</i> Dashboard
+                </li>
+                <li class="nav-item" data-target="clientes">
+                    <i>👤</i> Clientes
+                </li>
+                <li class="nav-item" data-target="produtos">
+                    <i>📦</i> Produtos
+                </li>
+                <li class="nav-item" data-target="vendas">
+                    <i>💰</i> Vendas
+                </li>
+                <li class="nav-item" data-target="financeiro">
+                    <i>💲</i> Financeiro
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo principal -->
+        <main>
+            <!-- Seção do Dashboard -->
+            <section id="dashboard" class="content-section active">
+                <h2>Dashboard</h2>
+                <p>Bem-vindo ao sistema ERP. Selecione uma opção no menu à esquerda.</p>
+            </section>
+
+            <!-- Seção de Gerenciamento de Clientes -->
+            <section id="clientes" class="content-section">
+                <h2>Gerenciamento de Clientes</h2>
+                
+                <!-- Formulário para cadastrar clientes -->
+                <form id="cliente-form">
+                    <div class="form-group">
+                        <label for="cliente-nome">Nome</label>
+                        <!-- Campo para inserir o nome do cliente -->
+                        <input type="text" id="cliente-nome" placeholder="Nome completo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cliente-email">Email</label>
+                        <!-- Campo para inserir o email do cliente -->
+                        <input type="email" id="cliente-email" placeholder="Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cliente-telefone">Telefone</label>
+                        <!-- Campo para inserir o telefone do cliente -->
+                        <input type="tel" id="cliente-telefone" placeholder="Telefone" required>
+                    </div>
+                    
+                    <!-- Botão para submeter o formulário -->
+                    <button type="submit">Cadastrar Cliente</button>
+                </form>
+                
+                <!-- Tabela para exibir os clientes cadastrados -->
+                <div class="table-container">
+                    <table id="clientes-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th> <!-- Coluna para o ID do cliente -->
+                                <th>Nome</th> <!-- Coluna para o nome do cliente -->
+                                <th>Email</th> <!-- Coluna para o email do cliente -->
+                                <th>Telefone</th> <!-- Coluna para o telefone do cliente -->
+                                <th>Ações</th> <!-- Coluna para ações (editar/excluir) -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os dados serão preenchidos dinamicamente via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Seção de Gerenciamento de Produtos -->
+            <section id="produtos" class="content-section">
+                <h2>Gerenciamento de Produtos</h2>
+                
+                <!-- Formulário para cadastrar produtos -->
+                <form id="produto-form">
+                    <div class="form-group">
+                        <label for="produto-nome">Nome do Produto</label>
+                        <!-- Campo para inserir o nome do produto -->
+                        <input type="text" id="produto-nome" placeholder="Nome do produto" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="produto-preco">Preço</label>
+                        <!-- Campo para inserir o preço do produto -->
+                        <input type="number" id="produto-preco" placeholder="Preço" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="produto-estoque">Estoque</label>
+                        <!-- Campo para inserir a quantidade em estoque -->
+                        <input type="number" id="produto-estoque" placeholder="Quantidade em estoque" required>
+                    </div>
+                    
+                    <!-- Botão para submeter o formulário -->
+                    <button type="submit">Cadastrar Produto</button>
+                </form>
+                
+                <!-- Tabela para exibir os produtos cadastrados -->
+                <div class="table-container">
+                    <table id="produtos-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th> <!-- Coluna para o ID do produto -->
+                                <th>Nome</th> <!-- Coluna para o nome do produto -->
+                                <th>Preço</th> <!-- Coluna para o preço do produto -->
+                                <th>Estoque</th> <!-- Coluna para a quantidade em estoque -->
+                                <th>Ações</th> <!-- Coluna para ações (editar/excluir) -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os dados serão preenchidos dinamicamente via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Seção de Gerenciamento de Vendas -->
+            <section id="vendas" class="content-section">
+                <h2>Gerenciamento de Vendas</h2>
+                
+                <!-- Formulário para registrar vendas -->
+                <form id="venda-form">
+                    <div class="form-group">
+                        <label for="venda-cliente">Cliente</label>
+                        <!-- Campo para selecionar o cliente -->
+                        <select id="venda-cliente" required>
+                            <option value="">Selecione um cliente</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="venda-produto">Produto</label>
+                        <!-- Campo para selecionar o produto -->
+                        <select id="venda-produto" required>
+                            <option value="">Selecione um produto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="venda-quantidade">Quantidade</label>
+                        <!-- Campo para inserir a quantidade do produto -->
+                        <input type="number" id="venda-quantidade" value="1" min="1" required>
+                    </div>
+                    
+                    <!-- Botão para adicionar o produto à venda -->
+                    <button type="button" id="add-produto">Adicionar à Venda</button>
+                </form>
+                
+                <!-- Tabela para exibir os produtos adicionados à venda -->
+                <div class="table-container"></div>
+                    <table id="vendas-table">
+                        <thead>
+                            <tr>
+                                <th>Produto</th> <!-- Coluna para o nome do produto -->
+                                <th>Quantidade</th> <!-- Coluna para a quantidade -->
+                                <th>Preço Unitário</th> <!-- Coluna para o preço unitário -->
+                                <th>Subtotal</th> <!-- Coluna para o subtotal -->
+                                <th>Ações</th> <!-- Coluna para ações (remover) -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os dados serão preenchidos dinamicamente via JavaScript -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="3">Total</th> <!-- Coluna para o total -->
+                                <th id="venda-total">R$ 0,00</th> <!-- Valor total da venda -->
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <!-- Botão para finalizar a venda -->
+                <button type="button" id="finalizar-venda" style="margin-top: 20px; background-color: var(--accent-color);">Finalizar Venda</button>
+            </section>
+
+            <!-- Seção de Gerenciamento Financeiro -->
+            <section id="financeiro" class="content-section">
+                <h2>Gerenciamento Financeiro</h2>
+                
+                <!-- Tabela para exibir os registros financeiros -->
+                <div class="table-container">
+                    <table id="financeiro-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th> <!-- Coluna para a data -->
+                                <th>Descrição</th> <!-- Coluna para a descrição -->
+                                <th>Valor</th> <!-- Coluna para o valor -->
+                                <th>Tipo</th> <!-- Coluna para o tipo (entrada/saída) -->
+                                <th>Status</th> <!-- Coluna para o status -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os dados serão preenchidos dinamicamente via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Importa o arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
